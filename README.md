@@ -1,2 +1,2 @@
 # web-features
-a set of tests in modern web features
+set of tests in modern web features
