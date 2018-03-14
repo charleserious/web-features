@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promise Map test</title>
+</head>
+<body>
+    
+</body>
+<script src="./Scripts/promise.utility.js"></script>
+<script>
+    var p1 = Promise.resolve( 21 );
+    var p2 = Promise.resolve( 42 );
+    var p3 = Promise.reject( 'Oops ');
+    Promise.map( [p1, p2, p3], function (promise, done) {
+        Promise.resolve( promise )
+            .then(
+                function (v) {
+                    done( v * 2 );
+                },
+                done
+            );
+    })
+    .then( function(vals) {
+        console.log( vals );
+    });
+</script>
+</html>
