@@ -1,0 +1,31 @@
+{
+  "name": "web-features",
+  "version": "1.0.0",
+  "description": "Web features learning",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "./node_modules/.bin/eslint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charleserious/web-features.git"
+  },
+  "keywords": [
+    "Web",
+    "Features"
+  ],
+  "author": "Charleserious",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charleserious/web-features/issues"
+  },
+  "homepage": "https://github.com/charleserious/web-features#readme",
+  "devDependencies": {
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}
