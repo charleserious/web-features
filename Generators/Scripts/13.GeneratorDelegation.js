@@ -1,8 +1,8 @@
 function * foo () {
-	console.log('`*foo ()` starting');
+	console.log('`* foo ()` starting');
 	yield 3;
 	yield 4;
-	console.log('`*foo ()` finished');
+	console.log('`* foo ()` finished');
 }
 
 function * bar () {

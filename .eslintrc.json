@@ -11,6 +11,7 @@
     "extends": "standard",
     "rules": {
 		"no-tabs": "off",
+		"no-throw-literal": "off",
 		"indent": ["error", "tab"],
 		"linebreak-style": ["error", "unix"],
 		"semi": ["error", "always"],
