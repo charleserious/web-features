@@ -1,0 +1,194 @@
+body {
+  font-size: 18px;
+  font-size: 1rem;
+}
+
+.center-with-flex-parent {
+  display: flex;
+  height: 17rem;
+  border: 0.1rem solid #999;
+}
+
+.center-with-flex-parent .center-with-flex-child {
+  width: 6rem;
+  height: 6rem;
+  margin: auto;
+  background-color: deepskyblue;
+}
+
+.nicely-destributed-on-the-horizontal-axis-parent {
+  /* We first create a flex layout context */
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  /**
+   * Then we define the flow direction and if we allow the items to wrap
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-around;
+
+  /* styling concern */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nicely-destributed-on-the-horizontal-axis-child {
+  background: tomato;
+  padding: .3rem;
+  width: 12.5rem;
+  height: 9.375rem;
+  line-height: 9.375rem;
+  margin-top: 0.625rem;
+  color: white;
+  font-weight: bold;
+  font-size: 3rem;
+  text-align: center;
+}
+
+/* Larg */
+.navigation {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row wrap;
+  /* This aligns items to the end line on main-axis */
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  background: deepskyblue;
+}
+
+.navigation a {
+  text-decoration: none;
+  display: block;
+  padding: 1rem;
+  color: white;
+}
+
+.navigation a:hover {
+  background: skyblue;
+}
+
+/* Medium screens */
+@media all and (max-width: 50rem) {
+  .navigation {
+    /** 
+     * When on medium sized screens, 
+     * we center it by evenly distributing empty space around items 
+     */
+    justify-content: space-around;
+  }
+}
+
+/* Small screens */
+@media all and (max-width: 31.5rem) {
+  .navigation {
+    /**
+     * On small screens,
+     * we are longer using row direction but column
+     */
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    padding: 0;
+  }
+
+  .navigation a {
+    text-align: center;
+    padding: 0.625rem;
+    border-top: 0.0625rem solid rgba(255, 255, 255, 0.3);
+    border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.1);
+  }
+
+  .navigation li:last-of-type a {
+    border-bottom: none;
+  }
+}
+
+.wrapper {
+  padding-top: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* We tell all items to be 100% width, via flex-basics */
+.wrapper > * {
+  padding: 0.625rem;
+  flex: 1 100%;
+}
+
+.header {
+  background: tomato;
+}
+
+.footer {
+  background: lightgreen;
+}
+
+.main {
+  text-align: left;
+  background: deepskyblue;
+}
+
+.aside-1 {
+  background: gold;
+}
+
+.aside-2 {
+  background: hotpink;
+}
+/* 
+ * We rely on source order for mobile-first approach
+ * in this case:
+ * 1. header
+ * 2. article
+ * 3. aside 1
+ * 4. aside 2
+ * 5. footer
+ */
+
+ /* Medium screens */
+ @media all and (min-width: 37.5rem) {
+   /* We tell both sidebars to share a row */
+   .aside {
+     flex: 1 auto;
+   }
+ }
+
+ /* Large screens */
+ @media all and (min-width: 50rem) {
+   /* 
+    * We invert order of first sidebar and main
+    * And tell the main element to take twice as much width as the other two sidebars
+    */
+    .main {
+      flex: 3 0rem;
+    }
+
+    .aside-1 {
+      order: 1;
+    }
+
+    .main {
+      order: 2;
+    }
+
+    .aside-2 {
+      order: 3;
+    }
+
+    .footer {
+      order: 4;
+    }
+ }
